@@ -36,7 +36,12 @@
 
    <button class="add-3-btn" onclick="
    cart_quantity = cart_quantity-1
-   console.log(`Cart Quantity: ${cart_quantity}`)
+   if (cart_quantity < 0) {
+    alert('No more items left in cart !')
+   }
+   else{
+    console.log(`Cart Quantity: ${cart_quantity}`)
+   }
    ">
    Remove an item
    </button>
