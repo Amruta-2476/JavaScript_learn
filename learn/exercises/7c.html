@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+    <script>
+    // create greet func with param name and pass 2 names
+        function greet1(name){
+            console.log(`Hello ${name}`)
+        }
+        greet1('John');
+        greet1('Ana');
+
+    // call greet w/o name arg
+        function greet2(name){
+            console.log(`Hello ${name}`)
+        }
+        greet2();   //==> Hello undefined
+
+    //modify so that it says hello there if name arg not passed
+        function greet3(name){
+            if( !name ){
+                console.log('Hello there')
+            }
+            else{
+                console.log(`Hello ${name}`)
+            }
+        }
+        greet3();
+        greet3('Tanya')
+    </script>
+</body>
+</html>
