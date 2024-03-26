@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Objects</title>
+  </head>
+
+  <body>
+    <script>
+       const product = {
+        name: 'Socks',
+        price: 1.99
+       }
+       console.log(product)  //==> {name: 'Socks', price: 1.99}
+       console.log(product.name)  //==> Socks
+       console.log(product['name'])  //==> Socks
+       console.log(`The ${product.name} costs $${product.price}`)  //==> The Socks costs $1.99
+
+    //    modifying object values
+       product.price = 2.50
+       console.log(`The cost of ${product.name} has been changed to $${product.price}`)
+
+    //    adding new properties
+       product.colors = ['red', 'black', 'blue']
+       console.log(product)
+       //console.log(product.colors[1])  //==> black
+
+    //    deleting properties from an object
+       delete product.colors
+       console.log(product)
+    </script>
+
+  </body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <button onclick="
+        result('heads')
+        ">heads</button>
+
+    <button onclick="
+    result('tails')
+    ">tails</button>
+
+    <script>
+      let score = JSON.parse(localStorage.getItem('score'));
+      if (!score || typeof score !== 'object' || isNaN(score.wins) || isNaN(score.losses)) {
+        score = {
+          wins: 0,
+          losses: 0
+        };
+      }
+      
+      // Debugging: Check the score object
+      console.log('Initial Score:', score);
+
+      function result(userMove) {
+        const compMove = randomCompMove();
+        if (userMove === compMove) {
+          console.log(`You win! You chose ${userMove} and the coin showed ${compMove}.`);
+          score.wins = (score.wins || 0) + 1;
+        } else {
+          console.log(`You lose. You chose ${userMove} and the coin showed ${compMove}.`);
+          score.losses = (score.losses || 0) + 1;
+        }
+        // updated the score
+        console.log(`Wins: ${score.wins}, Losses: ${score.losses}`);
+        localStorage.setItem('score', JSON.stringify(score));
+      }
+
+      function randomCompMove() {
+        let compMove;
+        const randomNumber = Math.random();
+        if (randomNumber < 0.5) {
+          compMove = 'heads';
+        } else {
+          compMove = 'tails';
+        }
+        return compMove;
+      }
+    </script>
+  </body>
+</html>
