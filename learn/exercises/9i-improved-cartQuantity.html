@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>functions project</title>
+  </head>
+
+  <body>
+   <p>Cart Quantity</p>
+   <button class="show-quantity-btn" onclick="
+    console.log(`Cart Quantity: ${cart_quantity}`)
+    updateCartQuantity(0)
+   ">
+      Show Quantity
+    </button>
+
+
+   <button class="add-to-cart-btn" onclick="updateCartQuantity(1)">
+   Add to cart
+   </button>
+
+   <button class="add-2-btn" onclick="updateCartQuantity(2)">
+   +2
+   </button>
+
+   <button class="add-3-btn" onclick="updateCartQuantity(3)">
+   +3
+   </button>
+
+   <button class="add-3-btn" onclick="
+   if (cart_quantity < 0) {
+    alert('No more items left in cart !')
+   }
+   else{
+    updateCartQuantity(-1)
+   }
+   ">
+   Remove an item
+   </button>
+
+   <button class="reset-cart-btn" onclick="
+   cart_quantity = 0
+//    console.log(`Cart was reset`)
+//    console.log(`Cart Quantity: 0`)
+   updateCartQuantity(0)
+   ">Reset Cart</button>
+   <p class="show-quantity"></p>
+
+    <script>
+       let cart_quantity = 0
+       function updateCartQuantity(value){
+        cart_quantity = cart_quantity + value
+        if(cart_quantity < 0){
+            alert('Cannot remove anymore items')
+            console.log('Cart is empty !')
+        }
+        else{
+            console.log(`Cart Quantity: ${cart_quantity}`)
+        }
+        document.querySelector('.show-quantity').innerHTML = `Cart Quantity: ${cart_quantity}`
+       }
+    </script>
+
+  </body>
+
+</html>

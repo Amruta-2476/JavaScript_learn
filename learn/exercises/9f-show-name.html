@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="Name" onkeydown="
+        if(event.key === 'Enter'){
+            inputTextShow()
+        }
+        ">
+
+    <button onclick="
+      inputTextShow()
+    ">Submit</button>
+
+    <p></p>
+
+    <script>
+        function inputTextShow (){
+            let textInput = document.querySelector('input').value
+            document.querySelector('p').innerHTML = `Your name is: ${textInput}`
+        }
+    </script>
+</body>
+</html>

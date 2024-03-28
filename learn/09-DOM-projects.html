@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>DOM projects</title>
+    <style>
+        .subscribe-btn{
+            padding: 7px;
+            border-radius: 30px;
+        }
+    </style>
+</head>
+<body>
+    <p>YouTube Subscribe Button</p>
+    <button onclick="
+    subscribeBtn()
+    " class="subscribe-btn">Subscribe</button>
+    <br>
+    <br>
+    <br>
+    <p>Rock Paper Scissors</p>
+    <a href="http://127.0.0.1:5500/Learn/09-dom-rock=paper-scissors.html">Click here</a>
+    <br>
+    <br>
+    <br>
+    <p>Amazon Shipping Calculator</p>
+    <p>Orders under $40 = +$10 shipping.</p>
+    <p>Orders over $40 = FREE shipping.</p>
+    <input type="text" name="" placeholder="Cost of Order" 
+    onkeydown="
+    console.log(event.key)
+    if (event.key === 'Enter') {
+        orders()
+    }
+    "/>
+    <button onclick="
+    orders()
+    ">Calculate</button>
+    <p class="total-cost"></p>
+    <br>
+    <br>
+    <br>
+    <a href="http://">CSS version of these projects</a>
+
+    <script>
+
+       window.console.log('Hello World')
+       window.alert('same as alert')
+
+       function subscribeBtn (){
+        if (document.querySelector('.subscribe-btn').innerHTML === 'Subscribe') {
+            document.querySelector('.subscribe-btn').innerHTML = 'Subscribed'
+        } else {
+            document.querySelector('.subscribe-btn').innerHTML = 'Subscribe'
+        } 
+       }
+
+       function orders(){
+        let orderCost = Number(document.querySelector('input').value)
+        let result = 0
+        if (orderCost < 40){
+            result = orderCost + 10
+            // alert(result)
+        }
+        else{
+            result = orderCost
+            // alert(result)
+        }
+        document.querySelector('.total-cost').innerHTML = `$${result}`
+       }
+    </script>
+</body>
+</html>

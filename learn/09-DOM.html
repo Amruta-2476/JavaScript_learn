@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>DOM</title>
+  </head>
+
+  <body>
+    <button>Hello</button>
+    <script>
+    //  Properties of DOM: 
+    // 1) .title : gives/changes the title of the webpage
+        console.log(document.title)   //==> DOM
+        console.log(typeof(document.title))   //==> DOM
+        document.title = 'Changed title'
+        console.log(document.title)   //==> Changed title
+
+    // 2) .body : gives/changes the body tag of the webpage
+        console.log(document.body)   
+        console.log(typeof(document.body))  
+
+        // document.body = 'changed the body'  don't use this
+        console.log(document.body.innerHTML)   //==> will give all the content inside the body tag
+
+        //to change the innerHTML of body
+        document.body.innerHTML = 'Changed the innerHTML of body'
+        document.body.innerHTML = '<button>Good job !</button>'
+
+     // 3) .querySelector : gives/changes any tag/element of the webpage
+
+        // //to change the innerHTML of button
+        // document.querySelector('button').innerHTML = 'Hello'
+        // document.querySelector('button').style.backgroundColor = 'red'
+        // document.querySelector('button').style.color = 'white'
+
+        console.log(document.querySelector('button'))   // ==> <button>Good job !</button>
+        console.log(document.querySelector('button').innerHTML)   //Good job !
+        document.querySelector('button').innerHTML = 'Changed button'
+        console.log(document.querySelector('button').innerHTML)
+        document.querySelector('button').style.backgroundColor = 'green'
+    </script>
+  </body>
+</html>

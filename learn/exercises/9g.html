@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>DOM projects</title>
+    <style>
+        .subscribe-btn{
+            padding: 7px;
+            border-radius: 30px;
+        }
+    </style>
+</head>
+<body>
+    <p>YouTube Subscribe Button</p>
+    <button onclick="
+    subscribeBtn()
+    " class="subscribe-btn">Subscribe</button>
+    <br>
+    <br>
+    <br>
+    <p>Rock Paper Scissors</p>
+    <a href="http://127.0.0.1:5500/Learn/09-dom-rock=paper-scissors.html">Click here</a>
+    <br>
+    <br>
+    <br>
+    <p>Amazon Shipping Calculator</p>
+    <p>Orders under $40 = +$10 shipping.</p>
+    <p>Orders over $40 = FREE shipping.</p>
+    <input type="text" name="" placeholder="Cost of Order" 
+    onkeydown="
+    console.log(event.key)
+    if (event.key === 'Enter') {
+        orders()
+    }
+    "/>
+    <button onclick="
+    orders()
+    ">Calculate</button>
+    <p class="total-cost"></p>
+    <br>
+    <br>
+    <br>
+    <a href="http://">CSS version of these projects</a>
+
+    <script>
+
+       function subscribeBtn (){
+        if (document.querySelector('.subscribe-btn').innerHTML === 'Subscribe') {
+            document.querySelector('.subscribe-btn').innerHTML = 'Subscribed'
+        } else {
+            document.querySelector('.subscribe-btn').innerHTML = 'Subscribe'
+        } 
+       }
+
+       function orders(){
+        // Convert the numbers to cents by * 100.
+        let orderCost = Number(document.querySelector('input').value) * 100
+
+        let result = 0
+        if (orderCost < 4000){
+            result = orderCost + 1000
+            // alert(result)
+        }
+        else{
+            result = orderCost
+            // alert(result)
+        }
+         // Convert back to dollars at the end.
+        document.querySelector('.total-cost').innerHTML = `$${result/100}`
+       }
+    </script>
+</body>
+</html>
