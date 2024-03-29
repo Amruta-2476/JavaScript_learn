@@ -37,6 +37,9 @@
             border: none;
             cursor: pointer;
         }
+        .alert-for-cost{
+            color: red;
+        }
         
     </style>
 </head>
@@ -67,6 +70,7 @@
     orders()
     " class="calculate-btn">Calculate</button>
     <p class="total-cost"></p>
+    <p class="alert-for-cost"></p>
     <br>
     <br>
     <br>
@@ -94,7 +98,12 @@
 
        function orders(){
         let orderCost = Number(document.querySelector('input').value)
-        let result = 0
+        if (orderCost <= 0) {
+            document.querySelector('.total-cost').innerHTML = ''
+            document.querySelector('.alert-for-cost').innerHTML = 'Error: Cost must be more than $0'
+        } 
+        else {
+            let result = 0
         if (orderCost < 40){
             result = orderCost + 10
             // alert(result)
@@ -104,7 +113,11 @@
             // alert(result)
         }
         document.querySelector('.total-cost').innerHTML = `$${result}`
+        document.querySelector('.alert-for-cost').innerHTML = ''
+        }
+        
        }
+       
     </script>
 </body>
 </html>

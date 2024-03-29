@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Calculator</title>
+        <style>
+            body{
+                background-color: black;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            p{
+                color: white;
+                font-size: 30px;
+                font-weight: bold;
+            }
+            .grey-btn{
+                background-color: rgb(51, 51, 51);
+                border: none;
+                color: white;
+                font-size: 23px;
+                height: 60px;
+                width: 60px;
+                border-radius: 60px;
+                margin-right: 5px;
+            }
+            .clear-grey-btn{
+                background-color: rgb(51, 51, 51);
+                border: none;
+                color: white;
+                height: 60px;
+                width: 60px;
+                border-radius: 60px;
+                font-size: 15px;
+                margin-right: 5px;
+            }
+            .orange-btn{
+                background-color: rgb(195, 115, 11);
+                border: none;
+                color: white;
+                font-size: 23px;
+                height: 60px;
+                width: 60px;
+                border-radius: 60px;
+                margin-right: 5px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <p>Calculator</p>
+        <p class="show-calculations"></p>
+        <button onclick="updateCalculation('1')" class="grey-btn">1</button>
+
+        <button onclick="updateCalculation('2')" class="grey-btn">2</button>
+
+        <button onclick="updateCalculation('3')" class="grey-btn">3</button>
+
+        <button onclick="updateCalculation(' + ')" class="orange-btn">+</button>
+        <br>
+        <br>
+        <button onclick="updateCalculation('4')" class="grey-btn">4</button>
+
+        <button onclick="updateCalculation('5')" class="grey-btn">5</button>
+
+        <button onclick="updateCalculation('6')" class="grey-btn">6</button>
+
+        <button onclick="updateCalculation(' - ')" class="orange-btn">-</button>
+        <br>
+        <br>
+        <button onclick="updateCalculation('7')" class="grey-btn">7</button>
+
+        <button onclick="updateCalculation('8')" class="grey-btn">8</button>
+
+        <button onclick="updateCalculation('9')" class="grey-btn">9</button>
+
+        <button onclick="updateCalculation(' * ')" class="orange-btn">*</button>
+        <br>
+        <br>
+        <button onclick="updateCalculation('0')" class="grey-btn">0</button>
+
+        <button onclick="updateCalculation('.') " class="grey-btn">.</button>
+
+        <button onclick="
+        calculation = eval(calculation)
+        // console.log(calculation)
+            displayResult()
+
+        // Remember to save the calculation here. I didn't do this
+        localStorage.setItem('calculation', calculation);
+        " class="grey-btn">=</button>
+
+        <button onclick="updateCalculation(' / ')" class="orange-btn">/</button>
+        <br>
+        <br>
+        <button onclick="
+        calculation = ''
+        // console.log(calculation)
+            displayResult()
+
+        // Remember to save the calculation here. I didn't do this
+        localStorage.setItem('calculation', calculation);
+        " class="clear-grey-btn">Clear</button>
+
+        <button onclick="deleteLast()" class="clear-grey-btn">Delete</button>
+
+        <script>
+            //from here
+            let calculation = localStorage.getItem('calculation')
+            if (!calculation) {
+                calculation = ''
+            }
+            //to here 
+            displayResult()
+
+            function updateCalculation(symbol) {
+                calculation = calculation + symbol
+                console.log(calculation)
+                displayResult()
+                localStorage.setItem('calculation', calculation)
+            }
+
+            // delete last 
+            function deleteLast() {
+            calculation = calculation.slice(0, -1); // Remove the last character from the calculation
+            displayResult(); // Display updated calculation
+            localStorage.setItem('calculation', calculation); // Save calculation to localStorage
+            }
+
+            function displayResult(){
+                document.querySelector('.show-calculations').innerHTML = calculation
+            }
+        </script>
+    </body>
+</html>
