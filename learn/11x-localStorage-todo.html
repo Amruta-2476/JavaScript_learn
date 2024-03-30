@@ -51,7 +51,18 @@
      <div class="display-todo todo-grid"></div> 
 
    <script>
-      const todoArray = [];
+    //   let todo = JSON.parse(localStorage.getItem('todo-task'))
+    // console.log(JSON.parse(localStorage.getItem('todo-task')))
+
+
+      let todoArray = [];
+      const storedTodos = localStorage.getItem('todo-task');
+      if (storedTodos) {
+        todoArray = JSON.parse(storedTodos);
+        displayToDo();
+      }
+
+    //   todo tasks are updated/ added here so localStorage here
       function addToDo() {
         const taskName = document.querySelector('.todo-input').value
         const dueDate = document.querySelector('.due-date').value
@@ -59,9 +70,14 @@
         console.log(todoArray)
         document.querySelector('.todo-input').value = '';
         document.querySelector('.due-date').value = '';
-        displayToDo()   //display todo list everytime we add a new todo
+        updateLocalStorageAndDisplay();   //display todo list everytime we add a new todo
       }
       
+      function deleteToDo(index) {
+        todoArray.splice(index, 1);
+        updateLocalStorageAndDisplay();
+      }
+
       function displayToDo() {
         let todoList = ''
         for(let i=0; i<todoArray.length; i++){
@@ -70,14 +86,23 @@
           todoList += ` 
           <div>${taskName}</div>
           <div>${dueDate}</div>
-            <button onclick="
-            todoArray.splice(${i}, 1);
-              displayToDo()
-            " class="deleteBtn">Delete</button>
+          <button class="deleteBtn" data-index="${i}">Delete</button>
             ` 
         }
         // console.log(todoList)
-        document.querySelector('.display-todo').innerHTML = todoList
+        document.querySelector('.display-todo').innerHTML = todoList;
+        // Add event listeners to delete buttons after displaying todos
+        document.querySelectorAll('.deleteBtn').forEach(button => {
+          button.addEventListener('click', function() {
+            const index = parseInt(this.getAttribute('data-index'));
+            deleteToDo(index);
+          });
+        });
+      }
+
+      function updateLocalStorageAndDisplay() {
+        localStorage.setItem('todo-task', JSON.stringify(todoArray));
+        displayToDo();
       }
    </script>
 </body>
