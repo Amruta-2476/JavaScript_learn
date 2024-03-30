@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // swap 1st and last element of an array
+        function arraySwap(array){
+            let temp = array[0]
+            array[0] = array[array.length - 1]
+            array[array.length - 1] = temp
+            return array;
+        }
+        console.log(arraySwap([1,20,22,24,5]))
+        console.log(arraySwap(['hi','hello','good']))
+
+    // count down from 5 to 0
+        i = 5
+        while (i>=0) {
+            console.log(i)
+            i --
+        }
+
+    //take an array and create new array where each number is increased by num 
+        function increaseArray(array, num) {
+            let newArray = []
+            for(let j=0; j<array.length; j++){
+                newArray.push(array[j] + num)
+            }
+            return newArray
+        }
+        console.log(increaseArray([1,2,3],2))
+        console.log(increaseArray([-2,-1,0,99],2))
+
+
+    // add two arrays
+        function addTwoArrays(arr1, arr2){
+            let sumArray = []
+            for(let i = 0; i<arr1.length; i++){
+                sumArray.push(arr1[i] + arr2[i])
+            }
+            return sumArray
+        }
+        console.log(addTwoArrays([1,2,3], [4,5,6]))
+    </script>
+</body>
+</html>

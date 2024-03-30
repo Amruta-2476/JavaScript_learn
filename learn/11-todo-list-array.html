@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Todo list</title>
+</head>
+<body>
+    <p>Todo List Practice 1</p>
+    <input type="text" placeholder="Todo name" class="todo-input">
+    <button onclick="
+     addToDo()
+    ">Add</button>
+     <div class="display-todo"></div>
+
+   <script>
+      const todoArray = [];
+      function addToDo() {
+        let inputValue = document.querySelector('.todo-input').value
+        todoArray.push(inputValue);
+        console.log(todoArray)
+        document.querySelector('.todo-input').value = '';
+        displayToDo()   //display todo list everytime we add a new todo
+      }
+      
+      function displayToDo() {
+        let todoList = ''
+        for(let i=0; i<todoArray.length; i++){
+          todoList += `<p> ${todoArray[i]} </p>` 
+        }
+        // console.log(todoList)
+        document.querySelector('.display-todo').innerHTML = todoList
+      }
+   </script>
+</body>
+</html>
