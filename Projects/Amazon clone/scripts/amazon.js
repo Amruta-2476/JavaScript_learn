@@ -1,33 +1,7 @@
 // list of products each having lots of values(use object)
-const products = [
- {
-    image: 'images/products/athletic-cotton-socks-6-pairs.jpg',
-    name: 'Black and Gray Athletic Cotton Socks - 6 Pairs',
-    ratings: {
-        stars: 4.5,
-        ratingCount: 87
-    },
-    priceCents: 1090,  //save as cents
- },
- {
-    image: 'images/products/intermediate-composite-basketball.jpg',
-    name: 'Intermediate Size Basketball',
-    ratings: {
-        stars: 4,
-        ratingCount: 127
-    },
-    priceCents: 2095,
- },
- {
-    image: 'images/products/adults-plain-cotton-tshirt-2-pack-teal.jpg',
-    name: 'Adults Plain Cotton T-Shirt - 2 Pack',
-    ratings: {
-        stars: 4.5,
-        ratingCount: 56
-    },
-    priceCents: 799,
- },
-];  //loop through the array and display the products in HTML using DOM manipulation
+// const products = [....]; deleted this coz this array is now coming from products.js file
+
+//loop through the array and display the products in HTML using DOM manipulation
 
 let productsHTML = '';
 
@@ -46,14 +20,14 @@ products.forEach((product) => {
 
         <div class="product-rating-container">
             <img class="product-rating-stars"
-            src="images/ratings/rating-${product.ratings.stars * 10}.png">
+            src="images/ratings/rating-${product.rating.stars * 10}.png">
             <div class="product-rating-count link-primary">
-            ${product.ratings.ratingCount}
+            ${product.rating.count}
             </div>
         </div>
 
         <div class="product-price">
-            $${product.priceCents / 100}  
+            $${(product.priceCents / 100).toFixed(2)}  
         </div>
 
         <div class="product-quantity-container">
