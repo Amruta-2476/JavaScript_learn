@@ -39,7 +39,7 @@ const obj = {
 }
 console.log(obj)
 
-// Functions are objects
+// Functions are objects too
 function fn() {
     return 1
 }
