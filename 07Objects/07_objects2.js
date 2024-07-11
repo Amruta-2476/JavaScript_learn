@@ -19,3 +19,6 @@ console.log(person.address.street)  // 50 Main St
 
 // ***** DESTRUCTURING :to pull out some properties from an object and assign them to variables  *******
 const { firstName, lastName, address: { city } } = person
+console.log(firstName)  // John
+console.log(city)  // Boston
+console.log(lastName)  // Doe
